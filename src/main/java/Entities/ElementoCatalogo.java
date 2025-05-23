@@ -1,14 +1,30 @@
-package Progetto;
+package Entities;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ElementoCatalogo {
 
+    @Id
     private String ISBN;
     private String titolo;
     private Integer annoPubblicazione;
     private Integer numeroPagine;
+
+    @ManyToOne
+    @JoinColumn(name = "utente_id")
+    private Utente utente;
+
+    public Utente getUtente() {
+        return utente;
+    }
+
+    public void setUtente(Utente utente) {
+        this.utente = utente;
+    }
 
     public ElementoCatalogo(String ISBN, String titolo, Integer annoPubblicazione, Integer numeroPagine) {
         this.ISBN = ISBN;
@@ -24,6 +40,7 @@ public abstract class ElementoCatalogo {
                 ", titolo='" + titolo + '\'' +
                 ", annoPubblicazione=" + annoPubblicazione +
                 ", numeroPagine=" + numeroPagine +
+                ", utente=" + utente +
                 '}';
     }
 

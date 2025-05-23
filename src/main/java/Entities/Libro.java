@@ -1,5 +1,8 @@
-package Progetto;
+package Entities;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Libro extends ElementoCatalogo {
 
 
@@ -15,7 +18,11 @@ public class Libro extends ElementoCatalogo {
     @Override
     public String toString() {
         return "Libro{" +
-                "autore='" + autore + '\'' +
+                "ISBN='" + getISBN() + '\'' +
+                ", titolo='" + getTitolo() + '\'' +
+                ", annoPubblicazione=" + getAnnoPubblicazione() +
+                ", numeroPagine=" + getNumeroPagine() +
+                ", autore='" + autore + '\'' +
                 ", genere='" + genere + '\'' +
                 '}';
     }

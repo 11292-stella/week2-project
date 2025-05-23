@@ -1,4 +1,4 @@
-package Progetto;
+package Enumerated;
 
 public enum Periodicita {
     SETTIMANALE,

@@ -1,5 +1,9 @@
-package Progetto;
+package Entities;
 
+import Enumerated.Periodicita;
+import jakarta.persistence.Entity;
+
+@Entity
 public class Rivista extends ElementoCatalogo{
 
     private Periodicita periodicita;
