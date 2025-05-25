@@ -98,9 +98,9 @@ public class AppMain {
             System.out.println("2. Cerca per anno");
             System.out.println("3. Cerca per autore");
             System.out.println("4. Elenca prestiti attivi");
-            System.out.println("6. Aggiungi libro/rivista");
-            System.out.println("7. Aggiungi libro/rivista");
-            System.out.println("5. Esci");
+            System.out.println("5. Aggiungi libro/rivista");
+            System.out.println("6. rimuovi libro/rivista con isbn");
+            System.out.println("7. Esci");
             System.out.print("Scelta: ");
             String scelta = scanner.nextLine();
 
@@ -137,12 +137,9 @@ public class AppMain {
                             " ha in prestito: " + p.getElementoCatalogo().getTitolo()));
                     break;
 
-                case "5":
-                    continua = false;
-                    System.out.println("Uscita dal programma.");
-                    break;
 
-                case "6":
+
+                case "5":
                     System.out.println("Vuoi aggiungere un libro o una rivista? (libro/rivista)");
                     String tipo = scanner.nextLine();
                     System.out.print("ISBN: ");
@@ -186,11 +183,16 @@ public class AppMain {
                     }
                     break;
 
-                case "7":
+                case "6":
                     System.out.print("Inserisci l'ISBN dell'elemento da rimuovere: ");
                     String isbnDaRimuovere = scanner.nextLine();
                     archivioDao.rimuoviElemento(isbnDaRimuovere);
                     System.out.println("Elemento con ISBN " + isbnDaRimuovere + " rimosso, se presente.");
+                    break;
+
+                case "7":
+                    continua = false;
+                    System.out.println("Uscita dal programma.");
                     break;
 
 
